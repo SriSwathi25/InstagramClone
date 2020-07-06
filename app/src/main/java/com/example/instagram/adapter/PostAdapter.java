@@ -117,6 +117,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 holder.username.setText(user.getUsername());
+                holder.top_username.setText(user.getUsername());
                 if(user.getImageURL().equals("default")){
                     Picasso.get().load(R.mipmap.ic_launcher).into(holder.profile_image);
                 }
@@ -196,6 +197,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public CircleImageView profile_image;
         public TextView name;
         public TextView username;
+        public TextView top_username;
+
         public SocialTextView description;
         public ImageView postImage;
         public ImageView like;
@@ -209,6 +212,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             profile_image = itemView.findViewById(R.id.profile_image);
             name = itemView.findViewById(R.id.fullname);
             username = itemView.findViewById(R.id.username);
+            top_username = itemView.findViewById(R.id.post_username);
             description = itemView.findViewById(R.id.post_description);
             postImage = itemView.findViewById(R.id.post_image);
             like = itemView.findViewById(R.id.like);

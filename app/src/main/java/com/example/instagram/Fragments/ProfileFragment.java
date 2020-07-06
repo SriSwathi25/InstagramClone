@@ -200,7 +200,7 @@ public class ProfileFragment extends Fragment {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
 
                 final Post post = dataSnapshot.getValue(Post.class);
-                FirebaseDatabase.getInstance().getReference().child("Saves").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(post.getPostId())
+                FirebaseDatabase.getInstance().getReference().child("Saves").child(profileId).child(post.getPostId())
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot1) {
@@ -234,7 +234,7 @@ public class ProfileFragment extends Fragment {
                 photoList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Post post = dataSnapshot.getValue(Post.class);
-                    if(post.getPublisher().equals(FirebaseAuth.getInstance().getUid())){
+                    if(post.getPublisher().equals(profileId)){
                         photoList.add(post);
                     }
                 }

@@ -29,6 +29,7 @@ public class PhotoFragment extends Fragment {
     private PostAdapter photoAdapter;
     private List<Post> postsList;
     String postId;
+    String mine;
 
 
     @Override
@@ -36,6 +37,7 @@ public class PhotoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_photo, container, false);
         postId = getContext().getSharedPreferences("PROFILE", Context.MODE_PRIVATE).getString("postId","none");
+
         photo_recycler_view = view.findViewById(R.id.photo_recycler_view);
         postsList = new ArrayList<>();
         photoAdapter = new PostAdapter(getContext(),postsList);
